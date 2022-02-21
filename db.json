@@ -1,0 +1,120 @@
+{
+  "posts": [
+    {
+      "name": "akash",
+      "email": "akashrewa2021@gmail.com",
+      "password": "1234",
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "name": "Masai",
+      "email": "akash_pw1_136@masai.school",
+      "password": "2468",
+      "id": 4
+    },
+    {
+      "name": "Sohit",
+      "email": "adarshsen6262@gmail.com",
+      "password": "8888",
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "name": "Sohit",
+      "email": "akashrewa20216@gmail.com",
+      "password": "5677",
+      "id": 7
+    },
+    {
+      "name": "Masai",
+      "email": "adarshsen6262@gmail.com",
+      "password": "7890",
+      "id": 8
+    },
+    {
+      "age": "18",
+      "fname": "Devendra",
+      "mname": "Jaya",
+      "id": 9
+    },
+    {
+      "age": "18",
+      "fname": "Devendra",
+      "mname": "Jaya",
+      "id": 10
+    },
+    {
+      "age": "18",
+      "fname": "Devendra",
+      "mname": "Jaya",
+      "id": 11
+    },
+    {
+      "age": "18",
+      "fname": "Devendra",
+      "mname": "Jaya",
+      "dob": "15/07/2000",
+      "id": 12
+    },
+    {
+      "age": "18",
+      "fname": "Devendra",
+      "mname": "Jaya",
+      "dob": "15/07/2000",
+      "name": "Sohit",
+      "email": "akash.dwivedi@injala.com",
+      "password": "6261",
+      "id": 13
+    },
+    {
+      "present": true,
+      "laptop": true,
+      "age": "18",
+      "fname": "Devendra",
+      "dob": "15/07/2000",
+      "mname": "Jaya",
+      "id": 14
+    },
+    {
+      "present": true,
+      "laptop": true,
+      "age": "18",
+      "fname": "Devendra",
+      "dob": "15/07/2000",
+      "mname": "Jaya",
+      "name": "Aman",
+      "email": "Akasadwivedi18414@gmail.com",
+      "password": "7828",
+      "id": 15
+    },
+    {
+      "present": true,
+      "laptop": true,
+      "age": "18",
+      "fname": "SOHIt",
+      "dob": "15/07/2000",
+      "mname": "Jaya",
+      "id": 16
+    },
+    {
+      "present": true,
+      "laptop": true,
+      "age": "18",
+      "fname": "SOHIt",
+      "dob": "15/07/2000",
+      "mname": "Jaya",
+      "name": "Masai",
+      "email": "akash_pw1_136@masai.school",
+      "password": "6789",
+      "id": 17
+    }
+  ]
+}
