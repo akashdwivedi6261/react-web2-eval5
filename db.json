@@ -115,6 +115,27 @@
       "email": "akash_pw1_136@masai.school",
       "password": "6789",
       "id": 17
+    },
+    {
+      "laptop": true,
+      "present": true,
+      "mname": "Jaya",
+      "dob": "15/07/2000",
+      "fname": "a",
+      "age": "18",
+      "id": 18
+    },
+    {
+      "laptop": true,
+      "present": true,
+      "mname": "Jaya",
+      "dob": "15/07/2000",
+      "fname": "a",
+      "age": "18",
+      "email": "akashrewa2021@gmail.com",
+      "name": "Akash Dwivedi",
+      "password": "1234",
+      "id": 19
     }
   ]
 }
