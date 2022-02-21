@@ -8,7 +8,7 @@ const Dashboard = () => {
       <>
       <Navbar />
       <h1 style={{color: "orange"}}>Dashboard</h1>
-      {isLogin ? <h2>User: {user}</h2> : <h1>User has not logged in</h1>}
+       <h2>User: {user}</h2> 
       </>
     
   )
