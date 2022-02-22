@@ -7,7 +7,7 @@ const Navbar = () => {
       <h1>Navbar</h1>
     <div style={{display: "flex", gap: "10px", justifyContent: "center"}}>
         <h2><Link to="/" >Home</Link></h2>
-        <h2><Link to="/dashboard" >Dashboard</Link></h2>
+        {/* <h2><Link to="/dashboard" >Dashboard</Link></h2> */}
         <h2><Link to="/login" >Login</Link></h2>
     </div>
       </div>

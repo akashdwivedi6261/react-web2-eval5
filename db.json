@@ -136,6 +136,27 @@
       "name": "Akash Dwivedi",
       "password": "1234",
       "id": 19
+    },
+    {
+      "present": true,
+      "laptop": true,
+      "age": "18",
+      "fname": "a",
+      "dob": "15/07/2000",
+      "mname": "Jaya",
+      "id": 20
+    },
+    {
+      "present": true,
+      "laptop": true,
+      "age": "18",
+      "fname": "a",
+      "dob": "15/07/2000",
+      "mname": "Jaya",
+      "name": "Sohit",
+      "email": "akashrewa2021@gmail.com",
+      "password": "6261",
+      "id": 21
     }
   ]
 }

@@ -8,12 +8,12 @@ const Prereq = () => {
   const location = useLocation()
   const { RegistrationForm, handleSubmit, handleChange } = React.useContext(AuthContext)
   
-  let base = location.pathname.split("/");
-  let url = "/" + base[1] + "/" + base[2]
+  // let base = location.pathname.split("/");
+  // let url = "/" + base[1] + "/" + base[2]
 
   let handleNav = () => {
     if(RegistrationForm.laptop && RegistrationForm.present) {
-      navigate(`${url}/info`)
+      navigate(`/info`)
     }
   }
   return (

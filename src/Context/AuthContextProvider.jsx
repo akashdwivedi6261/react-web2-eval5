@@ -86,7 +86,10 @@ export function AuthContextProvider({ children }) {
               
           })
   }
-
+const handleRedirect = () => { 
+    console.log("akash");
+    // navigate("home/prereq")
+ }
   // useEffect(() => {
   //     fetch('http://localhost:8000/posts')
   //         .then((res) => res.json())
@@ -97,7 +100,7 @@ export function AuthContextProvider({ children }) {
   //         })
   // }, [isLogin])
   return (
-    <AuthContext.Provider value={{ loginForm, handleLoginChange, handleLoginChange , handleFetch, user, RegistrationForm, handleChange, handleSubmit, data, setData}}>
+    <AuthContext.Provider value={{handleRedirect, isLogin, loginForm, handleLoginChange, handleLoginChange , handleFetch, user, RegistrationForm, handleChange, handleSubmit, data, setData}}>
       {children}
     </AuthContext.Provider>
   );

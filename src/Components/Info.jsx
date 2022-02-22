@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthContextProvider'
 
 const Info = () => {
@@ -7,9 +7,9 @@ const Info = () => {
   const location = useLocation()
   const { RegistrationForm, handleSubmit, handleChange, data, setData } = useContext(AuthContext)
 
-  let base = location.pathname.split("/");
-  let url = "/" + base[1] + "/" + base[2] + "/" + base[3]
-  console.log(base);
+  // let base = location.pathname.split("/");
+  // let url = "/" + base[1] + "/" + base[2] + "/" + base[3]
+  // console.log(base);
   const handleSubmit2 = () => {
     console.log(RegistrationForm);
     let payload = {
@@ -31,13 +31,13 @@ const Info = () => {
         if (RegistrationForm.age && RegistrationForm.fname && RegistrationForm.mname && RegistrationForm.dob) {
 
           setData([...data, response])
-          navigate(`${url}/register`)
+          navigate(`register`)
         }
       });
 
 
   }
-  return (
+  return (!RegistrationForm.laptop && !RegistrationForm.present) ?<Navigate to="/prereq" /> : (
     <>
       <h1>Info</h1>
       <form>

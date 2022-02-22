@@ -11,15 +11,15 @@ import Register from './Components/Register';
 function App() {
   return (
     <div className="App">
-       <Routes>
-         <Route index element={<Home />} />
-         <Route path="home" element={<Home />} />
-         <Route path="home/prereq" element={<Prereq />} />
-         <Route path="home/prereq/info" element={<Info />} />
-         <Route path="home/prereq/info/register" element={<Register />} />
-         <Route path="dashboard" element={<Dashboard />} />
-         <Route path="login" element={<Login />} />       
-       </Routes>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="home" element={<Home />} />
+        <Route path="prereq" element={<Prereq />} />
+        <Route path="info" element={<Info />} />
+        <Route path="register" element={<Register />} />
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="login" element={<Login />} />
+      </Routes>
     </div>
   );
 }
