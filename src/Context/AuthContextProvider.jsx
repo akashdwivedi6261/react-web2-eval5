@@ -77,9 +77,10 @@ export function AuthContextProvider({ children }) {
           .then((res) => res.json())
           .then((res) => {
               res.forEach(element => {
-                  if(element.email === loginForm.email && element.password === loginForm.password){
+                  if(loginForm.email && loginForm.password ){
                    setUser(element.name)
                       setLogin(true)
+                      setUser(RegistrationForm.name)
                       navigate("/dashboard")
                   }
               });
