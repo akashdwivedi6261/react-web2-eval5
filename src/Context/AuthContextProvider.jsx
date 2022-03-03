@@ -1,108 +1,90 @@
-import React, { createContext, useEffect } from "react";
-import App from "../App";
-import { useLocation, useNavigate } from 'react-router-dom'
+import React, {createContext, useState} from 'react'
 
-export const AuthContext = createContext();
+     export const AuthContext =  createContext()
+export const AuthContextProvider = ({children}) => {
+    const [formData, setFormData] = useState({})
+    const [formPosts, setFormPosts] = useState({})
+    const [data, setData] = useState([])
+    const [users, setUsers] = useState([])
+   const [isLoggedIn, setisLoggedIn] = useState(false);
+   const [logInUser, setLoginUser] = useState({});
+    const handleChange = (e) => { 
+        const {name, value} = e.target;
 
-export function AuthContextProvider({ children }) {
-  const [loginForm, setLoginForm] = React.useState({});
-  const [isLogin, setLogin] = React.useState(false)
-  const [user, setUser] = React.useState("")
-  const [data, setData] = React.useState([]);
-    const [isRegister, setIsRegister] = React.useState([]);
-    const [RegistrationForm, setRegistrationForm] = React.useState({})
-    const navigate = useNavigate()
+        setFormData({...formData, [name]:value})
+     }
 
-    // const { handleSubmit} = useContext(AuthContext)
-    
-    const handleChange = (e) => {
-      let{name, value, type, checked} = e.currentTarget;
-      console.log(name, value, type, checked);
-  
-      value = type === "checkbox" ? checked : value;
-  
-      setRegistrationForm({
-        ...RegistrationForm,
-        [name]: value
-      });
-    }
-    const handleSubmit = () => {
-        console.log(RegistrationForm);
-        let payload = {
-            val: RegistrationForm
-        }
+     const handlePostChange = (e) => { 
+        const {name, value} = e.target;
 
-        fetch('http://localhost:8000/posts', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(RegistrationForm),
-        })
-            .then(response => response.json(payload))
-            .catch(error => console.error('Error:', error))
-            .then((response) => {
-                console.log("response", response);
-                if (RegistrationForm.name && RegistrationForm.email && RegistrationForm.password) {
-                    setData([...data, response])
-                    
-                }
-            });
-            if (RegistrationForm.name && RegistrationForm.email && RegistrationForm.password) {
-                navigate("/login")
-                
-            }
-            
-    }
+        setFormPosts({...formPosts, [name]:value})
+     }
 
-    useEffect(() => {
-        fetch('http://localhost:8000/posts')
-            .then((res) => res.json())
-            .then((res) => setData(res))
-    }, [RegistrationForm])
-  // const navigate = useNavigate()
+     const handleSubmit = (e) => { 
+         e.preventDefault();
+        let payload = { 
+           username: formData.email,
+           password: formData.password,
+           fname: formData.fname
+          }
+          
+           fetch("http://localhost:8000/users", {
+           method: "POST",
+           headers: {
+           "Content-Type": "application/json",
+           },
+           body: JSON.stringify(payload),
+           })
+           .then(response => response.json())
+           .catch(error => console.error('Error:', error))
+           .then((response) => {
+               if(formData.email !== "" && formData.password !== ""  && formData.fname !== "") {
+                setData([...data, response])
+                console.log("response", data);
+                setLoginUser(response)
+                console.log(logInUser);
+                setFormData({...formData, email: "", password: "", fname: ""})
+                setisLoggedIn(true)
+               }
+               
+           });
+      }
 
-  const handleLoginChange = (e) => {
-      const { name, value } = e.target
-
-      setLoginForm({
-          ...loginForm, [name]: value
-      })
-
-  }
-
-  const handleFetch = (e) => {
-      e.preventDefault();
-      fetch('http://localhost:8000/posts')
-          .then((res) => res.json())
-          .then((res) => {
-              res.forEach(element => {
-                  if(loginForm.email && loginForm.password ){
-                   setUser(element.name)
-                      setLogin(true)
-                      setUser(RegistrationForm.name)
-                      navigate("/dashboard")
-                  }
-              });
-              
+      
+     const handlePostSubmit = (e) => { 
+        console.log("akash");
+         console.log("fname", logInUser);
+        e.preventDefault();
+       let payload = { 
+          title: formPosts.title,
+          body: formPosts.body,
+          authorId: logInUser.id,
+          authorName: logInUser.fname
+         }
+         
+          fetch("http://localhost:8000/posts", {
+          method: "POST",
+          headers: {
+          "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
           })
-  }
-const handleRedirect = () => { 
-    console.log("akash");
-    // navigate("home/prereq")
- }
-  // useEffect(() => {
-  //     fetch('http://localhost:8000/posts')
-  //         .then((res) => res.json())
-  //         .then((res) => {
-  //             if(isLogin) {
-                  
-  //             }
-  //         })
-  // }, [isLogin])
+          .then(response => response.json())
+          .catch(error => console.error('Error:', error))
+          .then((response) => {
+              console.log(response);
+              if(formPosts.title !== "" && formPosts.body !== "") {
+               setFormPosts({...formPosts, title: "", body: ""})
+              }
+              
+          });
+     }
+
   return (
-    <AuthContext.Provider value={{handleRedirect, isLogin, loginForm, handleLoginChange, handleLoginChange , handleFetch, user, RegistrationForm, handleChange, handleSubmit, data, setData}}>
-      {children}
+    <AuthContext.Provider value={{logInUser,setLoginUser,formData, handleChange, handleSubmit, isLoggedIn, users, setUsers, formPosts, handlePostChange, handlePostSubmit}}>
+        {children}
     </AuthContext.Provider>
-  );
+  )
 }
+
+// export default AuthContextProvider

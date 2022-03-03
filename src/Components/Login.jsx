@@ -1,30 +1,21 @@
 import React from 'react'
-import { useEffect } from 'react';
 import { useContext } from 'react'
+import { Navigate } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthContextProvider'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import Navbar from './Navbar';
-
+import style from "./Styles.module.css"
 const Login = () => {
-       const {loginForm, handleLoginChange, handleFetch} =  useContext(AuthContext);
-  
-    return (
-        <>
-        <Navbar />
-            <h1>Login Page</h1>
-            <form onSubmit={handleFetch}>
-                <div>
-                    <label>Email:</label>
-                    <input placeholder='Enter email address' name='email' value={loginForm.email} onChange={(e) => handleLoginChange(e)} />
-                </div>
-                <div>
-                    <label>Password:</label>
-                    <input placeholder='Enter password' type="password" name='password' value={loginForm.password} onChange={(e) => handleLoginChange(e)} />
-                </div>
-                <input type="submit" value="Login" />
-            </form>
-        </>
-    )
+   const {formData, handleChange, handleSubmit, isLoggedIn} = useContext(AuthContext)
+  return isLoggedIn ? <Navigate to="/users" /> : (
+    <div className={style.login}>
+        <h1>Welcome to login page</h1>
+        <form onSubmit={(e) => handleSubmit(e)}>
+            <h4>Email: <input name="email" value={formData.email} onChange={(e) => handleChange(e)} /></h4>
+            <h4>Password:<input name="password" value={formData.password} onChange={(e) => handleChange(e)} /></h4>        
+            <h4>Name:<input name="fname" value={formData.fname} onChange={(e) => handleChange(e)} /></h4>        
+            <h4> <input type="submit" value="submit" className={style.submit} /></h4> 
+        </form>
+    </div>
+  )
 }
 
 export default Login

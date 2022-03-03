@@ -1,17 +1,28 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
+import style from "./Styles.module.css"
+import { AuthContext } from '../Context/AuthContextProvider'
+import { useContext } from 'react'
+import { Navigate } from 'react-router-dom'
 
 const Navbar = () => {
-  return (
-      <div style={{background: "olive", height: "120px", marginBottom: "3rem"}}>
-      <h1>Navbar</h1>
-    <div style={{display: "flex", gap: "10px", justifyContent: "center"}}>
-        <h2><Link to="/" >Home</Link></h2>
-        {/* <h2><Link to="/dashboard" >Dashboard</Link></h2> */}
-        <h2><Link to="/login" >Login</Link></h2>
+  const navigate =   useNavigate()
+  const { logInUser, isLoggedIn} = useContext(AuthContext)
+
+const goToPosts = () => { 
+    navigate("/posts")
+ }
+ const goToUsers = () => { 
+    navigate("/users")
+
+  }
+  return !isLoggedIn ? <Navigate to='/login' /> : (
+    <div className={style.navbar}>
+        <h1>Navbar</h1>
+        <h2>Username: {logInUser.fname}</h2>
+        <div className={style.post}><button onClick={goToPosts}>Create post</button></div>
+        <div className={style.post}><button onClick={goToUsers}>Go to users</button></div>
     </div>
-      </div>
-    
   )
 }
 

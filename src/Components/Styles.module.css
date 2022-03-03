@@ -1,0 +1,40 @@
+.login {
+    border: 1px solid black;
+    background-color: orange;
+    padding: 1rem;
+    margin: 2rem auto;
+    width: 70%;
+    height: 400px;
+}
+.submit {
+  border: 1px solid pink;
+  padding: 0.2rem 1rem;
+  font-size: 16px;
+}
+
+.user {
+  border: 1px solid orange;
+  padding: 1rem 2rem;
+  width: 20%;
+  margin: 1rem auto;
+  display: block;
+}
+.post {
+  width: 150px;
+  height: 2rem;
+  padding: 0.6rem;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  display: block;
+  margin-top: 1.4rem;
+}
+.navbar {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  height: 120px;
+  background-color: pink;
+  margin: 2rem auto;
+}
